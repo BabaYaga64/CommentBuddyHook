@@ -1,0 +1,28 @@
+<?php
+	function comment_buddy_menu() {
+		$items = array();
+		$items['new_comment'] = array(
+			'title' => 'comment update',
+			'page_callback' => 'comment_function',
+			'access callback' => TRUE,
+			'type' => MENU_CALLBACK,
+		);
+		return $items;
+	}
+
+//Hooks:
+
+//catches the editing event
+function comment_buddy_comment_update() {
+	drupal_set_message("Comment updated");
+}
+
+//when the comment is about to be inserted
+function comment_buddy_comment_insert() {
+	drupal_set_message("Comment created")
+}
+
+//catches the comment deletion event
+function comment_buddy_comment_delete() {
+	drupal_set_message("Comment deleted");
+}
